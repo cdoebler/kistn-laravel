@@ -1,0 +1,5 @@
+.DS_Store
+.idea/
+/tests/Coverage/
+/vendor/
+CLAUDE.local.md
