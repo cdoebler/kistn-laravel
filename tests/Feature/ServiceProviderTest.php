@@ -15,8 +15,8 @@ test('kistn config is available', function () {
     expect(config('kistn.token'))->toBe('test-token');
 });
 
-test('inventory:push command is registered', function () {
-    expect(Artisan::all())->toHaveKey('inventory:push');
+test('kistn:push command is registered', function () {
+    expect(Artisan::all())->toHaveKey('kistn:push');
 });
 
 test('transmit_composer_files and transmit_npm_files config are available', function () {

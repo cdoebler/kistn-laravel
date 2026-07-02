@@ -10,7 +10,7 @@ use Kistn\InventoryPusher;
 
 class PushCommand extends Command
 {
-    protected $signature = 'inventory:push';
+    protected $signature = 'kistn:push';
 
     protected $description = 'Push package inventory to the Kistn server';
 

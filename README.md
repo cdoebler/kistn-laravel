@@ -49,7 +49,7 @@ if you do not want manifest contents leaving your environment.
 ## Usage
 
 ```bash
-php artisan inventory:push
+php artisan kistn:push
 ```
 
 Runs all configured collectors (Composer + npm) and pushes changed inventory to the server. Safe to run on every deploy — skips push when nothing changed.
