@@ -11,8 +11,8 @@ return [
 
     // Whether lock/manifest files are uploaded to the Kistn server alongside the
     // inventory. Allowed values: 'true' (always), 'false' (never), 'on-demand'
-    // (only when the package manager CLI is unavailable to read them server-side).
-    // Any unrecognized value falls back to 'false' (never upload) — fail-safe.
-    'transmit_composer_files' => env('KISTN_TRANSMIT_COMPOSER_FILES', 'true'),
-    'transmit_npm_files'      => env('KISTN_TRANSMIT_NPM_FILES', 'true'),
+    // (only when the package manager CLI is unavailable locally, so the server audits instead).
+    // Default and any unrecognized value: 'false' (never upload) — opt-in only.
+    'transmit_composer_files' => env('KISTN_TRANSMIT_COMPOSER_FILES', 'false'),
+    'transmit_npm_files'      => env('KISTN_TRANSMIT_NPM_FILES', 'false'),
 ];

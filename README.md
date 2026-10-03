@@ -30,21 +30,23 @@ KISTN_TOKEN=your-api-token-here
 
 ### File transmission
 
-By default the package uploads your lock and manifest files to the Kistn server
-along with the inventory (`composer.lock`, `composer.json`, `vendor/composer/installed.json`,
-`package-lock.json`, `package.json`). Control this per ecosystem:
+Every push sends the package inventory (names, versions, dependency flags) and your local
+audit findings. Your lock and manifest files (`composer.lock`, `composer.json`,
+`vendor/composer/installed.json`, `package-lock.json`, `package.json`) are **not** uploaded
+unless you opt in per ecosystem:
 
 ```env
-KISTN_TRANSMIT_COMPOSER_FILES=true   # true | false | on-demand
-KISTN_TRANSMIT_NPM_FILES=true        # true | false | on-demand
+KISTN_TRANSMIT_COMPOSER_FILES=false   # false (default) | true | on-demand
+KISTN_TRANSMIT_NPM_FILES=false        # false (default) | true | on-demand
 ```
 
-- `true` — always upload.
-- `false` — never upload (inventory metadata only).
-- `on-demand` — upload only when the package manager CLI is unavailable server-side.
+- `false` — never upload (default; also used for any unrecognized value).
+- `true` — upload whenever the package list changed.
+- `on-demand` — upload only when the package manager CLI is unavailable locally, so the server can run the audit instead.
 
-Any unrecognized value falls back to `false` (never upload). Set these to `false`
-if you do not want manifest contents leaving your environment.
+Uploaded files let the Kistn server run its own audit and cross-check your local findings.
+They contain your full dependency tree, so enable this only if you are fine sharing that
+data with the server.
 
 ## Usage
 

@@ -19,9 +19,9 @@ test('kistn:push command is registered', function () {
     expect(Artisan::all())->toHaveKey('kistn:push');
 });
 
-test('transmit_composer_files and transmit_npm_files config are available', function () {
-    expect(config('kistn.transmit_composer_files'))->toBe('true');
-    expect(config('kistn.transmit_npm_files'))->toBe('true');
+test('transmit_composer_files and transmit_npm_files default to never uploading', function () {
+    expect(config('kistn.transmit_composer_files'))->toBe('false');
+    expect(config('kistn.transmit_npm_files'))->toBe('false');
 });
 
 test('transmit config maps to TransmitMode and falls back to Never on invalid value', function () {
